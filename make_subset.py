@@ -17,7 +17,7 @@ def split(path, precentage, seed):
         os.mkdir(subest_path)
 
     for folder in os.listdir(artifact_path):
-        if folder != 'subset':
+        if folder != 'subset' and os.path.isdir(Path(artifact_path, folder)):
             files = [name for name in os.listdir(Path(artifact_path, folder))] 
 
             subset_count = int(np.floor(len(files) * subset_size))
